@@ -4,8 +4,8 @@ import { useState } from 'react';
 
 import '../css/components/TwitterButton.css'
 
-export default function TwitterButton ({ type }){
-    let [dataFollow, setDataFollow] = new useState(false)
+export default function TwitterButton ({ ifFollow }){
+    let [dataFollow, setDataFollow] = new useState(ifFollow)
 
     return (
         <div className="TwitterButton">
@@ -13,11 +13,12 @@ export default function TwitterButton ({ type }){
                 data-follow={dataFollow} 
                 onClick={ () => dataFollow ? setDataFollow(false) : setDataFollow(true) }
             >
-                { type }
+                { dataFollow ? 'following' : 'follow' }
+                
             </button>
         </div>
     )
 }
 TwitterButton.propTypes = {
-    type: PropTypes.string.isRequired, // Define el tipo y si es requerido o no
+    ifFollow: PropTypes.bool.isRequired, // Define el tipo y si es requerido o no
 };

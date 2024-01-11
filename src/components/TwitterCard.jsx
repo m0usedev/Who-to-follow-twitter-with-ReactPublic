@@ -6,7 +6,7 @@ import TwitterButton from './TwitterButton';
 import '../css/components/TwitterCard.css'
 
 
-export default function TwitterCard ({ avatar, name, user }) {
+export default function TwitterCard ({ avatar, name, user, ifFollow }) {
 
     return (
         <div className="contiener TwitterCard-continer">
@@ -22,7 +22,7 @@ export default function TwitterCard ({ avatar, name, user }) {
                 </div>
             </div>
             <div className="TwitterCard_button">
-                <TwitterButton type='follow' />
+                <TwitterButton ifFollow={ifFollow} />
             </div>
         </div>
     )
@@ -33,4 +33,5 @@ TwitterCard.propTypes = {
     avatar: PropTypes.string.isRequired, // Define el tipo y si es requerido o no
     name: PropTypes.string.isRequired,
     user: PropTypes.string.isRequired,
+    ifFollow: PropTypes.bool.isRequired,
 };
